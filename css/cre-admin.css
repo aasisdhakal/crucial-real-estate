@@ -1,0 +1,506 @@
+/*
+ * Crucial Real Estate Plugin's Admin Styles
+ */
+
+#toplevel_page_crucial-real-estate .wp-menu-image img {
+    width: 24px;
+    padding: 5px 0 0;
+}
+
+/*
+ * Additional details meta box CSS
+ */
+.rwmb-tab-panel-details {
+	
+}
+
+.rwmb-tab-panel-details .rwmb-clone {
+	margin-bottom: 0;
+}
+
+.rwmb-tab-panel-details .rwmb-clone label {
+	width: 46%;
+}
+.rwmb-tab-panel-details .rwmb-clone .rwmb-clone-icon {
+	top: 4px;
+}
+.rwmb-tab-panel-details .rwmb-clone .remove-clone {
+	position: static;
+}
+.rwmb-tab-panel-details .rwmb-clone .remove-clone {
+	margin-top: 6px;
+}
+
+.rwmb-tab-panel-details .rwmb-clone .rwmb-text-list-label {
+	display: none;
+}
+
+/*
+ * Additional details meta box CSS
+ */
+.aarambha-detail {
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.detail-placeholder {
+    margin: 5px 0;
+    background: #fafafa;
+    height: 29px;
+}
+
+.aarambha-detail label {
+    display: block;
+}
+
+.aarambha-detail input[type="text"] {
+    width: 97%;
+}
+
+.aarambha-detail-control {
+    width: 3%;
+    float: left;
+    color: #aaa;
+}
+
+.sort-detail {
+    cursor: move;
+}
+
+.sort-detail:hover {
+    color: #666;
+}
+
+.aarambha-detail-title {
+    width: 34%;
+    float: left;
+}
+
+.aarambha-detail-value {
+    width: 60%;
+    float: left;
+}
+
+.aarambha-details-wrapper a {
+    color: #aaa;
+}
+
+.aarambha-details-wrapper a:hover,
+.aarambha-details-wrapper a:focus {
+    color: #666;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.aarambha-details-wrapper .dashicons {
+    text-decoration: none;
+    margin-top: 3px;
+}
+
+@media all and ( max-width: 1200px ) {
+
+    .aarambha-detail-control {
+        width: 4%;
+    }  b                                   
+
+    .aarambha-detail-title {
+        width: 34%;
+    }
+
+    .aarambha-detail-value {
+        width: 58%;
+    }
+
+}
+
+@media all and ( max-width: 500px ) {
+
+    .aarambha-detail-control {
+        width: 5%;
+    }
+
+    .aarambha-detail-title {
+        width: 32%;
+    }
+
+    .aarambha-detail-value {
+        width: 58%;
+    }
+
+    .aarambha-details-wrapper .dashicons {
+        margin-top: 8px;
+    }
+
+}
+
+/*
+ * ERE Settings Page Styles
+ */
+.aarambha-cre-logo-wrap img {
+    width: 32px;
+    height: auto;
+    margin-right: 2px;
+    vertical-align: middle;
+}
+
+.aarambha-cre-page {
+    position: relative;
+    margin: 20px 0 0 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    background: #fff;
+}
+
+.aarambha-cre-page #setting-error-cre_settings_updated {
+    display: none;
+}
+
+.aarambha-cre-page-header {
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.aarambha-cre-page-header,
+.aarambha-cre-page-footer {
+    padding: 15px 25px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.aarambha-cre-page-header *,
+.aarambha-cre-page-footer * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.aarambha-cre-page-footer {
+    border-top: 1px solid #eee;
+}
+
+.aarambha-cre-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 30px;
+    padding: 0 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+.aarambha-cre-tabs a {
+    width: 100%;
+    margin: 0;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s linear;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    background: #eee;
+    color: #000;
+}
+
+.aarambha-cre-tabs a:hover,
+.aarambha-cre-tabs a:focus,
+.aarambha-cre-tabs a:focus:active {
+    box-shadow: none;
+    background: #fff;
+    color: #000;
+}
+
+.aarambha-cre-tabs .aarambha-is-active-tab {
+    background: #fff;
+}
+
+@media (min-width: 700px) {
+    .aarambha-cre-tabs a {
+        width: auto;
+        margin: 0 5px 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .aarambha-cre-tabs {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 1199px) {
+    .aarambha-cre-tabs a {
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+
+    .aarambha-cre-tabs .aarambha-is-active-tab {
+        margin-bottom: -1px;
+    }
+}
+
+.aarambha-cre-page-content {
+    margin-top: 30px;
+    padding: 0 25px 25px;
+}
+
+.aarambha-cre-page-content .form-table {
+    margin-top: 0;
+}
+
+@media (min-width: 783px) {
+    .aarambha-cre-page-content .form-table select {
+        width: 25em;
+    }
+}
+
+.aarambha-cre-page-content textarea {
+    padding-top: 6px;
+    line-height: 1.8;
+}
+
+.aarambha-cre-page-content .submit {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/*
+ * Social Network Styles
+ */
+.aarambha-cre-sn-tr label {
+    display: block;
+}
+
+.aarambha-cre-sn-tr td > div {
+    display: inherit;
+}
+
+.aarambha-cre-sn-field {
+}
+
+.aarambha-cre-sn-field.hide {
+    display: none !important;
+}
+
+.aarambha-cre-sn-actions {
+    margin-left: 5px;
+}
+
+.aarambha-cre-sn-actions .hide {
+    display: none;
+}
+
+.aarambha-cre-add-sn {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.aarambha-cre-add-sn:hover,
+.aarambha-cre-add-sn:focus {
+    box-shadow: none;
+    outline: 0;
+}
+
+.aarambha-cre-sn-btn {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: orange;
+    color: #fff;
+}
+
+.aarambha-cre-sn-btn:hover,
+.aarambha-cre-sn-btn:focus {
+    box-shadow: none;
+    outline: 0;
+    background-color: red;
+    color: #fff;
+}
+
+label[for=REAL_HOMES_tour_video_url] span {
+    color: red;
+}
+
+label[for=REAL_HOMES_tour_video_image] span {
+    color: red;
+}
+
+#REAL_HOMES_tour_video_image-description span {
+    color: red;
+}
+
+#REAL_HOMES_tour_video_url-description span {
+    color: red;
+}
+
+#REAL_HOMES_tour_video_url_divider {
+    margin-top: 50px;
+}
+
+/*
+ * Properties Filters
+ */
+.actions #prop_id_admin_filter {
+    height: 28px;
+    margin-right: 6px;
+}
+
+body.rtl .actions #prop_id_admin_filter {
+    margin-right: 0;
+    margin-left: 6px;
+    float: right;
+}
+
+/*
+ * Switch Styles
+ */
+#property-meta-box .rwmb-switch-label {
+    padding: 7px;
+    height: 27px;
+}
+
+#property-meta-box .rwmb-switch-on,
+#property-meta-box .rwmb-switch-off {
+    margin: 0 7px;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+#property-meta-box .rwmb-switch-off {
+    color: #6c7781;
+}
+
+#property-meta-box .rwmb-switch-slider:before {
+    width: 20px;
+    height: 23px;
+}
+
+#property-meta-box .rwmb-switch:checked + .rwmb-switch-status .rwmb-switch-slider:before {
+    left: calc(100% - 22px);
+}
+
+.cre-price-preview.hide,
+.cre-price-preview:empty {
+    display: none;
+}
+
+.cre-price-preview.overlap {
+    top: 4px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.cre-price-preview {
+    position: absolute;
+    left: 2px;
+    top: 31px;
+    padding: 2px 8px;
+    transition: top 0.3s ease-in-out;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(126, 136, 147, 0.9);
+    background: #ffffff;
+}
+
+/*
+ * Energy Performance Classes Settings 
+ */
+ .energy-classes-settings {
+	 max-width: 500px;
+ }
+ .energy-classes-settings > h2 {
+	 margin-top: 40px;
+ }
+ .energy-classes-settings tr th,
+ .energy-classes-settings tr td {
+	 width: 50%;
+	 padding: 10px 0px;
+ }
+
+ .energy-classes-settings tr td input {
+	 width: 85%;
+ }
+ 
+ .energy-classes-settings tr td .remove-epc-class {
+	text-decoration: navajowhite;
+	margin-top: 5px;
+	color: #ccc;
+	display: inline-block;
+	margin-left: 5px;
+ }
+
+ .energy-classes-settings .add-epc-class {
+	margin: 10px 0 0 20px;
+ }
+
+ .energy-classes-settings tr td .remove-epc-class:hover {
+	 color: #dc3232;
+ }
+
+ .energy-classes-settings tr td .reorder-epc-class {
+	cursor: move;
+	background: url(../images/icons/drag_icon.gif) no-repeat;
+	height: 23px;
+	width: 15px;
+	vertical-align: middle;
+	display: inline-block;
+ }
+ .energy-classes-settings .epc-class {
+	 background-color: #fff;
+ }
+ .energy-classes-settings .epc-class.dragging {
+	opacity: 1 !important;
+	background-color: #fdf8e4;
+	cursor: move;
+}
+
+.energy-classes-settings tr td .wp-picker-container {
+	width: auto;
+	float: left;
+}
+
+.energy-classes-settings tr td .wp-picker-container.wp-picker-active + .remove-epc-class {
+	display: none;
+}
+
+.energy-classes-settings .wp-picker-input-wrap {
+	width: auto;
+}
+
+.energy-classes-settings .wp-picker-input-wrap label {
+	float: left;
+}
+
+.energy-classes-settings .wp-picker-input-wrap .button {
+	width: auto;
+}
+
+.energy-classes-settings .wp-picker-holder {
+	position: absolute;
+}
+
+.energy-classes-settings .wp-picker-holder  .iris-square-handle {
+	cursor: pointer;
+}
