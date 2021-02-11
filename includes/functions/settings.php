@@ -10,7 +10,7 @@ if ( ! function_exists( 'cre_get_settings_price_format' ) ) {
 		if ( empty( $price ) ) {
 			return esc_html( get_option( 'theme_no_price_text', '' ) );
 		}
-		$decimals           = esc_html( get_option( 'theme_decimals', '' ) );
+		$decimals           = (int) esc_html( get_option( 'theme_decimals', '' ) );
 		$decimals_point     = esc_html( get_option( 'theme_dec_point', '' ) );
 		$thousand_separator = get_option( 'theme_thousands_sep', '' );
 		$price              = number_format( $price, $decimals, $decimals_point, $thousand_separator );
@@ -21,7 +21,7 @@ if ( ! function_exists( 'cre_get_settings_price_format' ) ) {
 			$price = esc_html( $price ) . esc_html( get_option( 'theme_currency_sign', '' ) );
 		}
 		
-		return $price;
+		return $price;// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		
 		
 	}
