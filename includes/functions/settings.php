@@ -16,9 +16,9 @@ if ( ! function_exists( 'cre_get_settings_price_format' ) ) {
 		$price              = number_format( $price, $decimals, $decimals_point, $thousand_separator );
 		
 		if ( get_option( 'theme_currency_position', '' ) == 'before' ) {
-			$price = esc_html( get_option( 'theme_currency_sign', '' ) ) . esc_html( $price );
+			$price = esc_html( get_option( 'theme_currency_sign', '$' ) ) . esc_html( $price );
 		} else {
-			$price = esc_html( $price ) . esc_html( get_option( 'theme_currency_sign', '' ) );
+			$price = esc_html( $price ) . esc_html( get_option( 'theme_currency_sign', '$' ) );
 		}
 		
 		return $price;// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
