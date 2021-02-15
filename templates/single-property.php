@@ -70,7 +70,7 @@ get_header();
 
 									</span>
 										<span class="property-address-info">
-									<?php echo esc_html( get_post_meta( get_the_ID(), 'cre_property_location', true ) ); ?>
+									<?php echo esc_html( get_post_meta( get_the_ID(), 'cre_property_area', true ) ); ?>
 									</span>
 									</li>
 									<li>
@@ -96,11 +96,7 @@ get_header();
 										<span class="property-address-info">
 									<?php echo esc_html( get_post_meta( get_the_ID(), 'cre_property_country', true ) ); ?>
 									</span>
-									</li><?php
-									echo '<pre>';
-									var_dump ( get_post_meta( get_the_ID(), 'cre_property_location', true )  );
-									echo '</pre>';
-									?>
+									</li>
 									<li class="address-map">
 										<a href="<?php echo esc_url( 'https://www.openstreetmap.org/search?query=' . get_post_meta( get_the_ID(), 'cre_property_location', true ) ); ?>"><?php esc_html_e( 'open in google map', 'real-home' ); ?></a>
 									</li>
