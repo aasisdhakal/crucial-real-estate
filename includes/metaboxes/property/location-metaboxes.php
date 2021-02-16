@@ -83,6 +83,13 @@ function cre_location_metabox_fields($property_metabox_fields)
 			'tab'     => 'map-location',
 		),
 		array(
+			'id'      => 'cre_property_area',
+			'name'    => esc_html__( 'Area', 'crucial-real-estate' ),
+			'type'    => 'text',
+			'columns' => 12,
+			'tab'     => 'map-location',
+		),
+		array(
 			'id'      => "cre_property_city",
 			'name'    => esc_html__('City', 'crucial-real-estate'),
 			'type'    => 'text',

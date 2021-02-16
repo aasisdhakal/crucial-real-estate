@@ -140,6 +140,7 @@ if (!class_exists('Crucial_Real_Estate')) :
 		{
 			// require_once CRE_PLUGIN_DIR . 'includes/functions/purchase-api.php'; // Purchase.
 			require_once CRE_PLUGIN_DIR . 'includes/functions/basic.php';
+			require_once CRE_PLUGIN_DIR . 'includes/functions/settings.php';
 			require_once CRE_PLUGIN_DIR . 'includes/functions/price.php';   // price functions.
 			require_once CRE_PLUGIN_DIR . 'includes/functions/real-estate.php';   // real estate functions.
 
