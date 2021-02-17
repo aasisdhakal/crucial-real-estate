@@ -127,6 +127,13 @@ get_header();
 								<span class="meta-value"><?php echo esc_html( get_post_meta( get_the_ID(), 'cre_property_garage', true ) ); ?></span>
 								<span class="meta-unit"><?php esc_html_e( 'garage', 'real-home' ); ?></span>
 							</div>
+                            <div class='meta-wrapper'>
+								<span class='meta-icon'>
+									<i class='fa fa-cutlery'></i>
+								</span>
+                                <span class='meta-value'><?php echo esc_html( get_post_meta( get_the_ID(), 'cre_property_kitchen', true ) ); ?></span>
+                                <span class="meta-unit"><?php esc_html_e( 'kitchen', 'real-home' ); ?></span>
+                            </div>
 							<div class="meta-wrapper">
 								<span class="meta-icon">
 									<i class="fa fa-home"></i>
