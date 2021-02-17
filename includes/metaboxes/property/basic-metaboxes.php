@@ -136,6 +136,15 @@ function cre_basic_metabox_fields($property_metabox_fields)
 			'tab'     => 'details',
 		),
 		array(
+			'id'      => 'cre_property_kitchen',
+			'name'    => esc_html__( 'Kitchens', 'crucial-real-estate' ),
+			'desc'    => esc_html__( 'Example: 1', 'crucial-real-estate' ),
+			'type'    => 'text',
+			'std'     => '',
+			'columns' => 12,
+			'tab'     => 'details',
+		),
+		array(
 			'id'      => "cre_property_garage",
 			'name'    => esc_html__('Garages or Parking Spaces', 'crucial-real-estate'),
 			'desc'    => esc_html__('Example: 1', 'crucial-real-estate'),
