@@ -60,20 +60,6 @@ class CRE_Meta_Boxes
 			}
 		}
 
-		// Include meta box rest api
-		if (!class_exists('MB_Rest_API')) {
-			if (file_exists(CRE_PLUGIN_DIR . '/includes/metaboxes/exts/mb-rest-api/mb-rest-api.php')) {
-				include_once(CRE_PLUGIN_DIR . '/includes/metaboxes/exts/mb-rest-api/mb-rest-api.php');
-			}
-		}
-
-		// Include columns extension
-		if (!class_exists('MB_Columns')) {
-			if (file_exists(CRE_PLUGIN_DIR . '/includes/metaboxes/exts/meta-box-columns/meta-box-columns.php')) {
-				include_once(CRE_PLUGIN_DIR . '/includes/metaboxes/exts/meta-box-columns/meta-box-columns.php');
-			}
-		}
-
 		// Include 'Include Exclude' extension
 		if (!class_exists('MB_Include_Exclude')) {
 			if (file_exists(CRE_PLUGIN_DIR . '/includes/metaboxes/exts/meta-box-include-exclude/meta-box-include-exclude.php')) {
@@ -87,14 +73,7 @@ class CRE_Meta_Boxes
 				include_once(CRE_PLUGIN_DIR . '/includes/metaboxes/exts/meta-box-show-hide/meta-box-show-hide.php');
 			}
 		}
-
-		// Include conditional logic extension
-		if (!class_exists('MB_Conditional_Logic')) {
-			if (file_exists(CRE_PLUGIN_DIR . '/includes/metaboxes/exts/meta-box-conditional-logic/meta-box-conditional-logic.php')) {
-				include_once(CRE_PLUGIN_DIR . '/includes/metaboxes/exts/meta-box-conditional-logic/meta-box-conditional-logic.php');
-			}
-		}
-
+		
 		// Include group extension
 		if (!class_exists('RWMB_Group')) {
 			if (file_exists(CRE_PLUGIN_DIR . '/includes/metaboxes/exts/meta-box-group/meta-box-group.php')) {

@@ -6,7 +6,7 @@
 .rwmb-row .rwmb-column {
   margin-right: 5%;
   float: left;
-  box-sizing: border-box;
+  box-sizing: border-box;.rwmb-tabs-left .rwmb-tab-nav a
 }
 .rwmb-row .rwmb-column:last-of-type {
   margin-right: 0;

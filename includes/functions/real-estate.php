@@ -1,39 +1,5 @@
 <?php
 
-if (!function_exists('cre_get_property_statuses')) {
-	/**
-	 * Display property status.
-	 *
-	 * @param int $post_id - Property ID.
-	 */
-	function cre_get_property_statuses($post_id)
-	{
-
-		$status_terms = get_the_terms($post_id, 'property-status');
-
-		if (!empty($status_terms)) {
-
-			$status_names = '';
-			$status_count = 0;
-
-			foreach ($status_terms as $term) {
-				if ($status_count > 0) {
-					$status_names .= ', ';  /* add comma before the term namee of 2nd and any later term */
-				}
-				$status_names .= $term->name;
-				$status_count++;
-			}
-
-			if (!empty($status_names)) {
-				return $status_names;
-			}
-		}
-
-		return '';
-	}
-}
-
-
 if (!function_exists('cre_get_property_types')) {
 	/**
 	 * Get property types
@@ -96,25 +62,6 @@ if (!function_exists('cre_get_property_cities_array')) :
 			}
 		}
 		return $cities_array;
-	}
-endif;
-
-
-if (!function_exists('cre_get_property_statuses_array')) :
-	/**
-	 * Return associative array of property status terms. Where slug is key and name is value.
-	 * @return array
-	 */
-	function cre_get_property_statuses_array()
-	{
-		$statuses_array = array();
-		$status_terms = get_terms('property-status');
-		if (!empty($status_terms) && is_array($status_terms)) {
-			foreach ($status_terms as $status_term) {
-				$statuses_array[$status_term->slug] = $status_term->name;
-			}
-		}
-		return $statuses_array;
 	}
 endif;
 
@@ -350,21 +297,21 @@ if (!function_exists('cre_additional_details_migration')) {
 			return;
 		}
 
-		$additional_details = get_post_meta($post_id, 'REAL_HOMES_additional_details', true);
+		$additional_details = get_post_meta($post_id, 'cre_additional_details', true);
 		if (!empty($additional_details)) {
 			$formatted_details = array();
 			foreach ($additional_details as $field => $value) {
 				$formatted_details[] = array($field, $value);
 			}
 
-			if (update_post_meta($post_id, 'REAL_HOMES_additional_details_list', $formatted_details)) {
-				delete_post_meta($post_id, 'REAL_HOMES_additional_details');
+			if (update_post_meta($post_id, 'cre_additional_details_list', $formatted_details)) {
+				delete_post_meta($post_id, 'cre_additional_details');
 			}
 		} else {
 			// For legacy code
-			$detail_titles = get_post_meta($post_id, 'REAL_HOMES_detail_titles', true);
+			$detail_titles = get_post_meta($post_id, 'cre_detail_titles', true);
 			if (!empty($detail_titles)) {
-				$detail_values = get_post_meta($post_id, 'REAL_HOMES_detail_values', true);
+				$detail_values = get_post_meta($post_id, 'cre_detail_values', true);
 				if (!empty($detail_values)) {
 					$additional_details = array_combine($detail_titles, $detail_values);
 					$formatted_details = array();
@@ -372,9 +319,9 @@ if (!function_exists('cre_additional_details_migration')) {
 						$formatted_details[] = array($field, $value);
 					}
 
-					if (update_post_meta($post_id, 'REAL_HOMES_additional_details_list', $formatted_details)) {
-						delete_post_meta($post_id, 'REAL_HOMES_detail_titles');
-						delete_post_meta($post_id, 'REAL_HOMES_detail_values');
+					if (update_post_meta($post_id, 'cre_additional_details_list', $formatted_details)) {
+						delete_post_meta($post_id, 'cre_detail_titles');
+						delete_post_meta($post_id, 'cre_detail_values');
 					}
 				}
 			}

@@ -107,7 +107,7 @@
             });
         }
 
-        erePricePreview('#REAL_HOMES_property_price');
-        erePricePreview('#REAL_HOMES_property_old_price');
+        erePricePreview('#cre_property_price');
+        erePricePreview('#cre_property_old_price');
     });
 }(jQuery));
