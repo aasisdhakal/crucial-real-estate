@@ -107,7 +107,7 @@ if (!function_exists('cre_get_property_old_price')) {
 		}
 
 		// Get property old price.
-		$amount = floatval(get_post_meta($property_id, 'REAL_HOMES_property_old_price', true));
+		$amount = floatval(get_post_meta($property_id, 'cre_property_old_price', true));
 
 		return cre_format_amount($amount);
 	}
@@ -131,7 +131,7 @@ if (!function_exists('cre_get_property_price')) {
 		}
 
 		// Get property price.
-		$amount = floatval(get_post_meta($property_id, 'REAL_HOMES_property_price', true));
+		$amount = floatval(get_post_meta($property_id, 'cre_property_price', true));
 
 		// Return no price text if price is empty.
 		if (empty($amount) || is_nan($amount)) {
@@ -153,8 +153,8 @@ if (!function_exists('cre_get_property_price')) {
 		}
 
 		// Get price prefix & postfix.
-		$price_prefix  = get_post_meta($property_id, 'REAL_HOMES_property_price_prefix', true);
-		$price_postfix = get_post_meta($property_id, 'REAL_HOMES_property_price_postfix', true);
+		$price_prefix  = get_post_meta($property_id, 'cre_property_price_prefix', true);
+		$price_postfix = get_post_meta($property_id, 'cre_property_price_postfix', true);
 
 		return $price_prefix . ' ' . $price . ' ' . $price_postfix;
 	}

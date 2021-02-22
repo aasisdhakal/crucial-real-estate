@@ -120,62 +120,18 @@ if (!class_exists('Crucial_Real_Estate')) :
 		public function includes()
 		{
 			$this->include_functions();
-			$this->include_shortcodes();
-			$this->include_widgets();
-			$this->include_social_login();
 		}
-
-		/**
-		 * Includes social login feature related files.
-		 */
-		public function include_social_login()
-		{
-			require_once CRE_PLUGIN_DIR . 'includes/social-login/autoload.php';  // Social login feature.
-		}
+		
 
 		/**
 		 * Functions
 		 */
 		public function include_functions()
 		{
-			// require_once CRE_PLUGIN_DIR . 'includes/functions/purchase-api.php'; // Purchase.
 			require_once CRE_PLUGIN_DIR . 'includes/functions/basic.php';
 			require_once CRE_PLUGIN_DIR . 'includes/functions/settings.php';
 			require_once CRE_PLUGIN_DIR . 'includes/functions/price.php';   // price functions.
 			require_once CRE_PLUGIN_DIR . 'includes/functions/real-estate.php';   // real estate functions.
-
-			require_once CRE_PLUGIN_DIR . 'includes/functions/gdpr.php';   // gdpr functions.
-			require_once CRE_PLUGIN_DIR . 'includes/functions/google-recaptcha.php';   // google recaptcha functions.
-			require_once CRE_PLUGIN_DIR . 'includes/functions/form-handlers.php';   // form handlers.
-			require_once CRE_PLUGIN_DIR . 'includes/functions/members.php';   // members functions.
-			require_once CRE_PLUGIN_DIR . 'includes/functions/property-submit.php';   // members functions.
-		}
-
-		/**
-		 * Shortcodes
-		 */
-		public function include_shortcodes()
-		{
-			include_once CRE_PLUGIN_DIR . 'includes/shortcodes/columns.php';
-			include_once CRE_PLUGIN_DIR . 'includes/shortcodes/elements.php';
-			include_once CRE_PLUGIN_DIR . 'includes/shortcodes/vc-map.php';
-		}
-
-		/**
-		 * Widgets
-		 */
-		public function include_widgets()
-		{
-			include_once CRE_PLUGIN_DIR . 'includes/widgets/agent-properties-widget.php';
-			include_once CRE_PLUGIN_DIR . 'includes/widgets/agents-list-widget.php';
-			include_once CRE_PLUGIN_DIR . 'includes/widgets/agent-featured-properties-widget.php';
-			include_once CRE_PLUGIN_DIR . 'includes/widgets/featured-properties-widget.php';
-			include_once CRE_PLUGIN_DIR . 'includes/widgets/properties-widget.php';
-			include_once CRE_PLUGIN_DIR . 'includes/widgets/property-types-widget.php';
-			include_once CRE_PLUGIN_DIR . 'includes/widgets/advance-search-widget.php';
-			include_once CRE_PLUGIN_DIR . 'includes/widgets/contact-form-widget.php';
-			include_once CRE_PLUGIN_DIR . 'includes/widgets/mortgage-calculator-widget.php';
-			include_once CRE_PLUGIN_DIR . 'includes/widgets/rh-contact-information-widget.php';
 		}
 
 		/**
@@ -277,10 +233,6 @@ if (!class_exists('Crucial_Real_Estate')) :
 			$tabs = array(
 				'price'              => esc_html__('Price Format', 'crucial-real-estate'),
 				'slug'               => esc_html__('URL Slugs', 'crucial-real-estate'),
-				'map'                => esc_html__('Maps', 'crucial-real-estate'),
-				'captcha'            => esc_html__('reCAPTCHA', 'crucial-real-estate'),
-				'gdpr'               => esc_html__('GDPR', 'crucial-real-estate'),
-				'property'           => esc_html__('Property', 'crucial-real-estate'),
 			);
 
 			return $tabs;

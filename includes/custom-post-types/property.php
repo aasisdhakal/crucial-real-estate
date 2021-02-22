@@ -102,7 +102,6 @@ if (!function_exists('cre_register_property_taxonomies')) {
 		cre_register_property_feature_taxonomy();
 		cre_register_property_type_taxonomy();
 		cre_register_property_city_taxonomy();
-		cre_register_property_status_taxonomy();
 	}
 
 	add_action('init', 'cre_register_property_taxonomies', 0);
@@ -244,50 +243,6 @@ if (!function_exists('cre_register_property_city_taxonomy')) :
 endif;
 
 
-if (!function_exists('cre_register_property_status_taxonomy')) :
-	function cre_register_property_status_taxonomy()
-	{
-		if (taxonomy_exists('property-status')) {
-			return;
-		}
-
-		$status_labels = array(
-			'name'                       => esc_html__('Property Statuses', 'crucial-real-estate'),
-			'singular_name'              => esc_html__('Property Status', 'crucial-real-estate'),
-			'search_items'               => esc_html__('Search Property Status', 'crucial-real-estate'),
-			'popular_items'              => esc_html__('Popular Property Status', 'crucial-real-estate'),
-			'all_items'                  => esc_html__('All Property Status', 'crucial-real-estate'),
-			'parent_item'                => esc_html__('Parent Property Status', 'crucial-real-estate'),
-			'parent_item_colon'          => esc_html__('Parent Property Status:', 'crucial-real-estate'),
-			'edit_item'                  => esc_html__('Edit Property Status', 'crucial-real-estate'),
-			'update_item'                => esc_html__('Update Property Status', 'crucial-real-estate'),
-			'add_new_item'               => esc_html__('Add New Property Status', 'crucial-real-estate'),
-			'new_item_name'              => esc_html__('New Property Status Name', 'crucial-real-estate'),
-			'separate_items_with_commas' => esc_html__('Separate Property Status with commas', 'crucial-real-estate'),
-			'add_or_remove_items'        => esc_html__('Add or remove Property Status', 'crucial-real-estate'),
-			'choose_from_most_used'      => esc_html__('Choose from the most used Property Status', 'crucial-real-estate'),
-			'menu_name'                  => esc_html__('Property Status', 'crucial-real-estate'),
-		);
-
-		register_taxonomy(
-			'property-status',
-			array('property'),
-			array(
-				'hierarchical' => true,
-				'labels'       => apply_filters('aarambha_property_status_labels', $status_labels),
-				'show_ui'      => true,
-				'show_in_menu' => 'crucial-real-estate',
-				'query_var'    => true,
-				'rewrite'      => array(
-					'slug' => apply_filters('aarambha_property_status_slug', __('property-status', 'crucial-real-estate')),
-				),
-				'show_in_rest' => true,
-				'rest_base'    => apply_filters('aarambha_property_status_rest_base', __('property-statuses', 'crucial-real-estate'))
-			)
-		);
-	}
-endif;
-
 
 if (!function_exists('cre_set_property_city_slug')) :
 	/**
@@ -309,29 +264,6 @@ if (!function_exists('cre_set_property_city_slug')) :
 
 	add_filter('aarambha_property_city_slug', 'cre_set_property_city_slug');
 	add_filter('aarambha_property_city_rest_base', 'cre_set_property_city_slug');
-endif;
-
-
-if (!function_exists('cre_set_property_status_slug')) :
-	/**
-	 * This function set property status's url slug by hooking itself with related filter
-	 *
-	 * @param string $existing_slug - Existing property status slug.
-	 *
-	 * @return string
-	 */
-	function cre_set_property_status_slug($existing_slug)
-	{
-		$new_slug = get_option('aarambha_property_status_slug');
-		if (!empty($new_slug)) {
-			return $new_slug;
-		}
-
-		return $existing_slug;
-	}
-
-	add_filter('aarambha_property_status_slug', 'cre_set_property_status_slug');
-	add_filter('aarambha_property_status_rest_base', 'cre_set_property_status_slug');
 endif;
 
 
@@ -398,7 +330,6 @@ if (!function_exists('cre_property_edit_columns')) {
 			'property-thumbnail' => esc_html__('Thumbnail', 'crucial-real-estate'),
 			'city'               => esc_html__('Location', 'crucial-real-estate'),
 			'type'               => esc_html__('Type', 'crucial-real-estate'),
-			'status'             => esc_html__('Status', 'crucial-real-estate'),
 			'price'              => esc_html__('Price', 'crucial-real-estate'),
 			'id'                 => esc_html__('Property ID', 'crucial-real-estate'),
 			'date'               => esc_html__('Publish Time', 'crucial-real-estate'),
@@ -445,30 +376,19 @@ if (!function_exists('cre_property_custom_columns')) {
 				}
 				break;
 			case 'id':
-				$Prop_id = get_post_meta($post->ID, 'REAL_HOMES_property_id', true);
+				$Prop_id = get_post_meta($post->ID, 'cre_property_id', true);
 				if (!empty($Prop_id)) {
 					echo esc_html($Prop_id);
 				} else {
 					_e('NA', 'crucial-real-estate');
 				}
 				break;
-			case 'agent':
-				$agents_id = get_post_meta($post->ID, 'REAL_HOMES_agents');
-				if (!empty($agents_id)) {
-					$agents_title = array();
-					foreach ($agents_id as $agent_id) {
-						$agents_title[] = get_the_title($agent_id);
-					}
-					echo implode(', ', $agents_title);
-				} else {
-					_e('NA', 'crucial-real-estate');
-				}
-				break;
+			
 			case 'city':
 				echo cre_admin_taxonomy_terms($post->ID, 'property-city', 'property');
 				break;
 			case 'address':
-				$address = get_post_meta($post->ID, 'REAL_HOMES_property_address', true);
+				$address = get_post_meta($post->ID, 'cre_property_address', true);
 				if (!empty($address)) {
 					echo esc_html($address);
 				} else {
@@ -478,14 +398,12 @@ if (!function_exists('cre_property_custom_columns')) {
 			case 'type':
 				echo cre_admin_taxonomy_terms($post->ID, 'property-type', 'property');
 				break;
-			case 'status':
-				echo cre_admin_taxonomy_terms($post->ID, 'property-status', 'property');
-				break;
+			
 			case 'price':
 				cre_property_price();
 				break;
 			case 'bed':
-				$bed = get_post_meta($post->ID, 'REAL_HOMES_property_bedrooms', true);
+				$bed = get_post_meta($post->ID, 'cre_property_bedrooms', true);
 				if (!empty($bed)) {
 					echo esc_html($bed);
 				} else {
@@ -493,7 +411,7 @@ if (!function_exists('cre_property_custom_columns')) {
 				}
 				break;
 			case 'bath':
-				$bath = get_post_meta($post->ID, 'REAL_HOMES_property_bathrooms', true);
+				$bath = get_post_meta($post->ID, 'cre_property_bathrooms', true);
 				if (!empty($bath)) {
 					echo esc_html($bath);
 				} else {
@@ -501,7 +419,7 @@ if (!function_exists('cre_property_custom_columns')) {
 				}
 				break;
 			case 'garage':
-				$garage = get_post_meta($post->ID, 'REAL_HOMES_property_garage', true);
+				$garage = get_post_meta($post->ID, 'cre_property_garage', true);
 				if (!empty($garage)) {
 					echo esc_html($garage);
 				} else {
@@ -689,19 +607,6 @@ if (!function_exists('cre_properties_filter_fields_admin')) {
 			}
 			wp_dropdown_categories($prop_type_args);
 
-			// Property Status Dropdown Option
-			$prop_status_args = array(
-				'show_option_all' => esc_html__('All Property Statuses', 'crucial-real-estate'),
-				'orderby'         => 'NAME',
-				'order'           => 'ASC',
-				'name'            => 'property_status_admin_filter',
-				'taxonomy'        => 'property-status'
-			);
-			if (isset($_GET['property_status_admin_filter'])) {
-				$prop_status_args['selected'] = sanitize_text_field($_GET['property_status_admin_filter']);
-			}
-			wp_dropdown_categories($prop_status_args);
-
 			// User Dropdown Option
 			$user_args = array(
 				'show_option_all'  => esc_html__('All Users', 'crucial-real-estate'),
@@ -751,26 +656,10 @@ if (!function_exists('cre_properties_filter_admin')) {
 			if (isset($_GET['prop_id_admin_filter']) && !empty($_GET['prop_id_admin_filter'])) {
 
 				$meta_query[] = array(
-					'key'     => 'REAL_HOMES_property_id',
+					'key'     => 'cre_property_id',
 					'value'   => sanitize_text_field($_GET['prop_id_admin_filter']),
 					'compare' => 'LIKE',
 				);
-			}
-
-			// Property Status Filter
-			if (isset($_GET['property_status_admin_filter']) && !empty($_GET['property_status_admin_filter'])) {
-
-				//get the desired property status
-				$property_status = sanitize_text_field($_GET['property_status_admin_filter']);
-
-				//if the property status is not 0 (which means all)
-				if ($property_status != 0) {
-					$tax_query[] = array(
-						'taxonomy' => 'property-status',
-						'field'    => 'ID',
-						'terms'    => array($property_status)
-					);
-				}
 			}
 
 			// Property Type Filter
@@ -863,7 +752,7 @@ if (!function_exists('cre_price_orderby')) {
 		if ($pagenow == 'edit.php' && $post_type == 'property') {
 			$orderby = $query->get('orderby');
 			if ('price' == $orderby) {
-				$query->set('meta_key', 'REAL_HOMES_property_price');
+				$query->set('meta_key', 'cre_property_price');
 				$query->set('orderby', 'meta_value_num');
 			}
 		}

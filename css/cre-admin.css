@@ -338,23 +338,23 @@
     color: #fff;
 }
 
-label[for=REAL_HOMES_tour_video_url] span {
+label[for=cre_tour_video_url] span {
     color: red;
 }
 
-label[for=REAL_HOMES_tour_video_image] span {
+label[for=cre_tour_video_image] span {
     color: red;
 }
 
-#REAL_HOMES_tour_video_image-description span {
+#cre_tour_video_image-description span {
     color: red;
 }
 
-#REAL_HOMES_tour_video_url-description span {
+#cre_tour_video_url-description span {
     color: red;
 }
 
-#REAL_HOMES_tour_video_url_divider {
+#cre_tour_video_url_divider {
     margin-top: 50px;
 }
 

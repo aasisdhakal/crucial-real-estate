@@ -42,7 +42,7 @@ function cre_misc_metabox_fields($property_metabox_fields)
 	$cre_misc_fields = array(
 		// Misc.
 		array(
-			'id'        => "REAL_HOMES_sticky",
+			'id'        => "cre_sticky",
 			'name'      => esc_html__('Make this property sticky for home and listings pages', 'crucial-real-estate'),
 			'type'      => 'switch',
 			'style'     => 'square',
@@ -109,7 +109,7 @@ function cre_misc_metabox_fields($property_metabox_fields)
 			'tab'     => 'misc',
 		),
 		array(
-			'id'        => "REAL_HOMES_attachments",
+			'id'        => "cre_attachments",
 			'name'      => esc_html__('Attachments', 'crucial-real-estate'),
 			'desc'      => esc_html__('You can attach PDF files, Map images OR other documents to provide further details related to property.', 'crucial-real-estate'),
 			'type'      => 'file_advanced',
@@ -146,7 +146,7 @@ function cre_misc_metabox_fields($property_metabox_fields)
 			'tab'     => 'misc',
 		),
 		array(
-			'id'      => "REAL_HOMES_property_private_note",
+			'id'      => "cre_property_private_note",
 			'name'    => esc_html__('Private Note', 'crucial-real-estate'),
 			'desc'    => esc_html__('In this textarea, You can write your private note about this property. This field will not be displayed anywhere else.', 'crucial-real-estate'),
 			'type'    => 'textarea',
